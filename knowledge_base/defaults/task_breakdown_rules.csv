@@ -1,0 +1,13 @@
+rule_id,enabled,fact,operator,value,action,action_value,message
+B001,true,estimated_hours,>,3,suggest_breakdown,90,Estimated duration is {estimated_hours}h (more than 3h). Splitting it into smaller subtasks makes it easier to schedule and track.
+B002,true,estimated_hours,>,8,suggest_breakdown,120,This is a very large task ({estimated_hours}h). A breakdown is strongly recommended.
+T001,true,title,contains_any,management system,template,Design the database;Create authentication;Build the dashboard;Develop student management;Develop faculty management;Test the application,Matched the 'management system' template.
+T002,true,title,contains_any,application|website|software|platform|system|develop|coding,template,Gather requirements;Design the architecture and data model;Implement the core features;Build the user interface;Test and fix bugs;Document and deploy,Matched the 'software project' template.
+T003,true,title,contains_any,essay|report|paper|thesis|article|assignment|proposal,template,Research and collect sources;Create an outline;Write the first draft;Revise and edit;Proofread and format;Submit,Matched the 'writing' template.
+T004,true,title,contains_any,presentation|slides|talk|pitch|demo,template,Define the key message and audience;Outline the slides;Create content and visuals;Rehearse the delivery;Final review,Matched the 'presentation' template.
+T005,true,title,contains_any,exam|test|quiz|study|revision|revise,template,List the topics to cover;Review notes and materials;Practise problems or past papers;Summarise weak areas;Final revision,Matched the 'exam preparation' template.
+T006,true,title,contains_any,event|party|trip|travel|wedding|conference,template,Set goals and budget;Book venue or transport;Make a detailed plan;Prepare materials;Final checks,Matched the 'event planning' template.
+T007,true,title,contains_any,research|experiment|lab|survey,template,Define the research question;Review existing literature;Collect data;Analyse the results;Write up the findings,Matched the 'research' template.
+T010,true,category,==,academic,template,Review the requirements;Gather material and notes;Work through the main content;Check and revise;Submit,Matched the 'Academic' category template.
+T011,true,category,==,work,template,Clarify requirements;Do the main work;Review with stakeholders;Finalise and deliver,Matched the 'Work' category template.
+T099,true,always,,,template,Plan the approach;Do the first part;Do the second part;Review and polish;Finish and wrap up,Used the generic breakdown template.

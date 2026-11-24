@@ -1,0 +1,31 @@
+rule_id,enabled,fact,operator,value,action,action_value,message
+P001,true,is_active,==,false,exclude,,"Task is {status}, so it is excluded from prioritisation."
+P010,true,is_overdue,==,true,add_score,45,Deadline has already passed ({hours_overdue} hours ago).
+P011,true,is_overdue,==,true,min_level,Critical,Overdue tasks are always Critical.
+P012,true,hours_to_deadline,between,0..24,add_score,40,Deadline is within 24 hours.
+P013,true,hours_to_deadline,between,24..48,add_score,32,Deadline is within 48 hours.
+P014,true,hours_to_deadline,between,48..72,add_score,25,Deadline is within 3 days.
+P015,true,hours_to_deadline,between,72..168,add_score,15,Deadline is within a week.
+P016,true,hours_to_deadline,between,168..336,add_score,8,Deadline is within two weeks.
+P017,true,hours_to_deadline,>=,336,add_score,2,Deadline is more than two weeks away.
+P018,true,has_deadline,==,false,add_score,0,"No deadline is set, so urgency stays low."
+P020,true,importance,==,3,add_score,15,Importance is High.
+P021,true,importance,==,2,add_score,8,Importance is Medium.
+P022,true,importance,==,1,add_score,2,Importance is Low.
+P030,true,priority,==,4,add_score,18,You marked the priority as Critical.
+P031,true,priority,==,3,add_score,12,You marked the priority as High.
+P032,true,priority,==,2,add_score,6,You marked the priority as Medium.
+P033,true,priority,==,1,add_score,1,You marked the priority as Low.
+P040,true,workload_ratio,>=,1,add_score,15,Remaining work ({remaining_hours}h) is more than the working time left before the deadline ({available_hours}h).
+P041,true,workload_ratio,between,0.6..1,add_score,8,Remaining work ({remaining_hours}h) uses most of the {available_hours}h available before the deadline.
+P043,true,remaining_hours,>=,6,add_score,4,Large remaining workload ({remaining_hours}h).
+P050,true,is_in_progress,==,true,add_score,5,Task is already in progress; finishing it avoids context switching.
+P051,true,completion,>=,75,add_score,4,Task is nearly complete ({completion}%).
+P052,true,is_overrun,==,true,add_score,4,Task is taking longer than estimated.
+P062,true,remaining_hours,<=,0.5,add_score,3,Quick win: only {remaining_hours}h of work left.
+P090,true,always,,,add_score,0,Task is not yet completed.
+P091,true,always,,,add_score,0,Estimated completion time is {estimated_hours} hours.
+P100,true,score,>=,60,classify,Critical,Score {score} is in the Critical range (60 or more).
+P101,true,score,between,40..60,classify,High,Score {score} is in the High range (40 to 59).
+P102,true,score,between,22..40,classify,Medium,Score {score} is in the Medium range (22 to 39).
+P103,true,score,<,22,classify,Low,Score {score} is in the Low range (below 22).

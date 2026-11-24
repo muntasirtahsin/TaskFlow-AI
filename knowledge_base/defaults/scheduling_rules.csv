@@ -1,0 +1,10 @@
+rule_id,enabled,fact,operator,value,action,action_value,message
+S001,true,always,,,set_flag,spill_next_day,"If a task cannot fit into today's available time, it is moved to the next suitable day."
+S002,true,always,,,set_flag,exclude_completed,Completed and cancelled tasks are removed from future scheduling.
+S003,true,always,,,tie_margin,5,"If two tasks have similar priority scores (within 5 points), the one with the earlier deadline goes first."
+S004,true,always,,,set_flag,respect_deadlines,Time before a task's deadline is used first; work only goes past a deadline when nothing else fits.
+S005,true,always,,,set_flag,keep_locked,Blocks you customised manually are never moved or deleted automatically.
+S006,true,always,,,set_flag,add_breaks,A break is inserted after every work block.
+S010,true,missed_blocks_recent,>=,3,scale_load,0.75,"You missed {missed_blocks_recent} blocks in the last 7 days, so the daily workload is reduced by 25%."
+S011,true,missed_blocks_recent,>=,3,scale_block,0.75,"Because of the missed blocks, time blocks are shortened by 25% to be more realistic."
+S012,true,missed_blocks_recent,>=,6,scale_load,0.8,Many missed blocks ({missed_blocks_recent}): workload is reduced by a further 20%.

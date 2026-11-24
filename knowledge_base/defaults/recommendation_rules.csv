@@ -1,0 +1,17 @@
+rule_id,enabled,fact,operator,value,action,action_value,message
+R001,true,overdue_count,>=,1,recommend,warning,You have {overdue_count} overdue task(s). Finish the oldest first or renegotiate its deadline.
+R002,true,completion_rate_week,>=,80,recommend,success,Strong week: {completion_rate_week}% of this week's work is done. Keep the same pace.
+R003,true,completion_rate_week,<,50,recommend,warning,Only {completion_rate_week}% of this week's work is done. Plan fewer tasks per day and protect focus time.
+R004,true,on_time_rate,<,70,recommend,warning,Only {on_time_rate}% of completed tasks met their deadline. Add buffer time before deadlines.
+R005,true,estimate_ratio,>,1.3,recommend,warning,Tasks take {estimate_ratio}x longer than estimated. Increase your estimates by about 30%.
+R006,true,estimate_ratio,<,0.7,recommend,info,You finish faster than estimated ({estimate_ratio}x). You can safely plan a little more per day.
+R007,true,missed_blocks_week,>=,3,recommend,warning,{missed_blocks_week} scheduled blocks were missed this week. Use shorter blocks and a lower daily limit.
+R008,true,focus_hours_week,<,2,recommend,info,Only {focus_hours_week}h of tracked focus time this week. Try Pomodoro sessions in the Focus Timer.
+R009,true,focus_hours_week,>=,10,recommend,success,Excellent focus: {focus_hours_week}h tracked this week. Remember to rest.
+R010,true,large_task_count,>=,1,recommend,info,{large_task_count} task(s) are longer than 3 hours. Break them into subtasks in the AI Planner.
+R011,true,today_load_ratio,>,1,recommend,warning,Today's plan is {today_load_percent}% of your daily limit. Consider postponing lower priority work.
+R012,true,critical_count,>=,3,recommend,warning,{critical_count} critical tasks compete for your attention. Defer or delegate low-value work.
+R013,true,active_count,==,0,recommend,success,No active tasks. Add new tasks or enjoy the free time.
+R014,true,unscheduled_count,>=,1,recommend,warning,"{unscheduled_count} task(s) do not fit into your available time. Extend working hours, add days or reduce scope."
+R015,true,streak_days,>=,3,recommend,success,{streak_days}-day productivity streak. Nice consistency.
+R016,true,due_today_count,>=,1,recommend,info,{due_today_count} task(s) are due today.
